@@ -112,6 +112,12 @@ img {
 
 }
 
+#logout{
+  padding-right: 10px;
+  text-decoration: none;
+  color: white;
+}
+
 .activitiesTab{
   border:1px solid black;
   margin:5px;

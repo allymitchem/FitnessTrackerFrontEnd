@@ -19,7 +19,7 @@ const Main = () => {
   
   return (
     <div id="main">
-    <Navbar/>
+    <Navbar loggedIn={loggedIn} setLoggedIn= {setLoggedIn}/>
     
     <Routes>
       <Route path="login" element={<Login getLoggedInUser={getLoggedInUser} setLoggedIn={setLoggedIn}/>}/>
