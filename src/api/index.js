@@ -26,3 +26,18 @@ export async function registerUser(username, password){
 	const result = await response.json()
 	return result
 }
+
+export async function loginUser(username, password){
+	const options = {
+		method:"POST",
+		headers: {
+			'Content-Type': 'application/json',
+		}, 
+		body: JSON.stringify({username, password}),
+	}
+	const response = await fetch(`${BASE_URL}/users/login`, options)
+	const result = await response.json()
+	console.log(result, 'this is result')
+	console.log(response, 'this is response')
+	return result
+}
