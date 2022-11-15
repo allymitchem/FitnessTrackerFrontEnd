@@ -12,7 +12,7 @@ const Navbar = () => {
                 <NavLink id="home" to="/routines">
                     Home
                 </NavLink>
-                <NavLink id="myRoutines" to="">
+                <NavLink>
                     
                 </NavLink>
 

@@ -13,15 +13,12 @@ const Routines = () => {
 
   return (
     <div>
-      <div>
-    
-      </div>
+      <div></div>
       <div>
         {routines.map((routine) => {
-          console.log(routine, "I am routineeee");
           return (
-            <div className="routineActs">
-              <div id="routines" key={`routines-id${routine.id}`}>
+            <div className="routineActs" key={`routines-id${routine.id}`}>
+              <div id="routines">
                 <div>
                   <b>Creator Name:</b> {routine.creatorName}
                 </div>
@@ -33,9 +30,8 @@ const Routines = () => {
                 </div>
               </div>
               {routine.activities.map((activity) => {
-                console.log(activity, "I am activityyy ");
                 return (
-                  <div id="activities">
+                  <div id="activities" key={`activity-id${activity.id}`}>
                     <div>
                       <b>Activity Name:</b> {activity.name}
                     </div>
