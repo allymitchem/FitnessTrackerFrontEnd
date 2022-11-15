@@ -23,9 +23,23 @@ export async function getActivities(){
 	})
 	
 	const result = await response.json()
-	console.log(result, "this is result")
+	
 	return result
 }
+
+export async function getActivityRoutines(){
+	const response = await fetch(`${BASE_URL}/activities/${activityId}/routines`, {
+		headers:{
+			'Content-Type': 'application/json'
+		}
+
+	}) 
+	const result = await response.json()
+	console.log(result, 'this is result')
+	getActivityRoutines()
+	return result
+} 
+
 
 export async function registerUser(username, password){
 	const options = {

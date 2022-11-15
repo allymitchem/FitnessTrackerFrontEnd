@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import { getActivities } from "../api";
+import { getActivities, getActivityRoutines } from "../api";
 
 const Activities = () => {
     const [activities, setActivities] = useState([]);
@@ -10,7 +10,7 @@ const Activities = () => {
       }
       fetchActivities();
     }, []);
-
+	
     return (
         <div>
           <div>

@@ -16,6 +16,7 @@ const Routines = () => {
       <div></div>
       <div>
         {routines.map((routine) => {
+			
           return (
             <div className="routineActs" key={`routines-id${routine.id}`}>
               <div id="routines">

@@ -9,14 +9,14 @@ const Main = () => {
     if(token){
       setLoggedIn(true)
     }
-    useEffect(()=>{
-      const token = localStorage.getItem('token')
-      if(token){
-        getLoggedInUser()
-      }
-    }, [])
   }
   
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      getLoggedInUser()
+    }
+  }, [])
   return (
     <div id="main">
     <Navbar loggedIn={loggedIn} setLoggedIn= {setLoggedIn}/>
