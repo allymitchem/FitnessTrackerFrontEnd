@@ -105,3 +105,19 @@ img {
   text-decoration: none;
   color: white;
 }
+#navbarActivities{
+  padding-right: 10px;
+  text-decoration: none;
+  color: white;
+
+}
+
+.activitiesTab{
+  border:1px solid black;
+  margin:5px;
+  padding:10px;
+}
+
+.activitiesTitle{
+  margin:10px;
+}

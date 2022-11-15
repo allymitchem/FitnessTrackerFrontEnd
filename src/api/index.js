@@ -14,6 +14,19 @@ export async function getRoutines(){
 	return result
 }
 
+export async function getActivities(){
+	const response = await fetch(`${BASE_URL}/activities`, {
+		headers:{
+			'Content-Type': 'application/json'
+		}
+
+	})
+	
+	const result = await response.json()
+	console.log(result, "this is result")
+	return result
+}
+
 export async function registerUser(username, password){
 	const options = {
 		method:"POST",
@@ -37,7 +50,6 @@ export async function loginUser(username, password){
 	}
 	const response = await fetch(`${BASE_URL}/users/login`, options)
 	const result = await response.json()
-	console.log(result, 'this is result')
-	console.log(response, 'this is response')
+	
 	return result
 }
