@@ -75,3 +75,17 @@ img {
   border-radius: 5px;
 }
 
+.routineActs {
+  padding:5px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+#routines{
+  margin-bottom: 5px;
+}
+
+#activities{
+  font-size:12px;
+  margin-bottom: 2px;
+}
