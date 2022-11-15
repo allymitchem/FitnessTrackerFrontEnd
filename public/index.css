@@ -27,11 +27,10 @@ body {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-#navbar div {
-  padding: 5px;
-}
+
 
 #container {
   align-items: center;
@@ -88,4 +87,21 @@ img {
 #activities{
   font-size:12px;
   margin-bottom: 2px;
+}
+
+#login {
+  text-decoration: none;
+  color: white;
+  padding-right: 10px;
+  
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+#home {
+  padding-right: 10px;
+  text-decoration: none;
+  color: white;
 }

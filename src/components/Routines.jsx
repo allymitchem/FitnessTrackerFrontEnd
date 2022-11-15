@@ -14,7 +14,7 @@ const Routines = () => {
   return (
     <div>
       <div>
-        <h2>This is Routines</h2>
+    
       </div>
       <div>
         {routines.map((routine) => {
