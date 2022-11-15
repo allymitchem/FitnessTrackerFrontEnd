@@ -1,25 +1,24 @@
-import { NavLink, useNavigate} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { registerUser } from "../api";
 
-
 const Register = () => {
-	const navigate = useNavigate()
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     const username = e.target[0].value;
     const password = e.target[1].value;
     const registeringUser = await registerUser(username, password);
     const token = registeringUser.token;
-	console.log(token, ' this is token')
+
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
-	if(token){
-		navigate("/login")
-		alert('Thank you for registering. Please login.')
-	}
-	if(!token){
-		alert(registeringUser.message)
-	}
+    if (token) {
+      navigate("/login");
+      alert("Thank you for registering. Please login.");
+    }
+    if (!token) {
+      alert(registeringUser.message);
+    }
   }
   return (
     <div>
