@@ -18,7 +18,7 @@ const Activities = () => {
           </div>
           <div>
             {activities.map((activity) => {
-                console.log(activity, "this is activity")
+                
               return (
                 <div className="activitiesTab" key={`activities-id${activity.id}`}>
                   <div id="activityList">

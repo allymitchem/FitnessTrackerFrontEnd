@@ -117,6 +117,11 @@ img {
   text-decoration: none;
   color: white;
 }
+#myRoutines{
+  padding-right: 10px;
+  text-decoration: none;
+  color: white;
+}
 
 .activitiesTab{
   border:1px solid black;

@@ -28,6 +28,11 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
                 <NavLink id="navbarActivities" to="/activities">
                     Activities
                 </NavLink>
+                {loggedIn ? (
+                    <NavLink  id="myRoutines" to>My Routines</NavLink>
+                ):null
+
+                }
 
             </div>
         </div>
