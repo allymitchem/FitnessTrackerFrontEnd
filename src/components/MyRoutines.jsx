@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getMyRoutine } from "../api";
+import CreateRoutine from "./CreateRoutine";
 
 const MyRoutines = (props) => {
   const username = props.username;
@@ -16,9 +17,12 @@ const MyRoutines = (props) => {
   }, [username]);
   return (
     <div>
+		<CreateRoutine username={username}/>
+		<div>
       {myRoutines.map((myRoutine) => {
         return <div>{myRoutine.name}</div>;
       })}
+	  	</div>
     </div>
   );
 };
