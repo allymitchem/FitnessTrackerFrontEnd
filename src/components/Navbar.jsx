@@ -2,7 +2,7 @@ import React from "react"
 import { NavLink } from "react-router-dom";
 
 const Navbar = ({loggedIn, setLoggedIn}) => {
-    console.log(loggedIn, "this is logged in")
+    
     return (
         <div id ="navbar">
             <h2>Fitness Tracker</h2>

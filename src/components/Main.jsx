@@ -26,6 +26,7 @@ const Main = () => {
       <Route path="login/register" element={<Register/>}/>
       <Route path="activities" element={<Activities/>}/>
       <Route path="/" element={<Routines/>}/>
+      <Route path="/me" element={<Routines/>}/>
     </Routes>
   </div>
   );

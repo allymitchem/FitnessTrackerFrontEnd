@@ -16,7 +16,7 @@ const Login = (props) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // console.log(formData)
+   
     const username = formData.username;
     const password = formData.password;
 
@@ -27,7 +27,7 @@ const Login = (props) => {
     localStorage.setItem("token", token);
     setUsername(username);
     localStorage.setItem("user", username);
-    console.log(username, "this is username");
+    
     setLoggedIn(true);
 
     // getLoggedInUser()
@@ -39,9 +39,11 @@ const Login = (props) => {
     }
   }
   return (
-    <div>
+    <div className="loginForm">
       <h2>Please sign in</h2>
-      <form onSubmit={handleSubmit}>
+	  <div>
+      <form  onSubmit={handleSubmit}>
+		<span id="inputs">
         <input type="text" placeholder="username" className="username" 
          onChange={(e)=> setFormData({...formData, username:e.target.value})}
 		 value={formData.username}/>
@@ -49,8 +51,10 @@ const Login = (props) => {
         onChange={(e)=> setFormData({...formData, password:e.target.value})}
 		 value={formData.password}/>
         <button type="submit">Submit</button>
+		</span>
       </form>
-      <NavLink to="register">Don't have an account? Sign up here</NavLink>
+	  </div>
+      <NavLink  to="register">Don't have an account? Sign up here.</NavLink>
     </div>
   );
 };

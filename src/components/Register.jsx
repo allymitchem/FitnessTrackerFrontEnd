@@ -26,11 +26,12 @@ const Register = () => {
     }
   }
   return (
-    <div>
-      <div>
-        <h2>Please create username and password</h2>
+    <div className="registerForm">
+      <div >
+        <h2>Please create a username and password</h2>
       </div>
       <form onSubmit={handleSubmit}>
+        <span id="inputs">
         <input type="text" placeholder="username" className="username" 
          onChange={(e)=> setFormData({...formData, username:e.target.value})}
 		 value={formData.username}/> 
@@ -38,6 +39,9 @@ const Register = () => {
         onChange={(e)=> setFormData({...formData, password:e.target.value})}
         value={formData.password}/>
         <button type="submit">Submit</button>
+
+        <NavLink className="signUpSignIn" to="/login">Already have an account? Sign in here.</NavLink>
+        </span>
       </form>
     </div>
   );
