@@ -67,3 +67,23 @@ export async function loginUser(username, password){
 	
 	return result
 }
+
+export async function getMyRoutine(username, token){
+	console.log(username)
+	try {
+	const response = await fetch(`${BASE_URL}/users/${username}/routines`,{
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		}
+	})
+	const result = await response.json()
+	console.log(result, 'this is result')
+	
+	
+	return result
+	}catch(error){
+		console.log(error)
+
+	}
+}

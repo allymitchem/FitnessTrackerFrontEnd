@@ -12,6 +12,7 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
                     id="logout"
                     onClick={()=> {
                         localStorage.removeItem("token")
+                        localStorage.removeItem('user')
                         setLoggedIn(false)
                     }}
                     >
@@ -23,13 +24,15 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
                 
                 <NavLink id="home" to="/">
                     Home
+                </NavLink >
+                <NavLink id="routinesNav" to="/routines">
+                    Routines
                 </NavLink>
-
                 <NavLink id="navbarActivities" to="/activities">
                     Activities
                 </NavLink>
                 {loggedIn ? (
-                    <NavLink  id="myRoutines" to>My Routines</NavLink>
+                    <NavLink id="myRoutines" to="/me">My Routines</NavLink>
                 ):null
 
                 }

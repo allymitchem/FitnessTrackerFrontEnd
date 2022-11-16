@@ -89,39 +89,17 @@ img {
   margin-bottom: 2px;
 }
 
-#login {
-  text-decoration: none;
-  color: white;
-  padding-right: 10px;
-  
-}
 .links {
   display: flex;
   justify-content: space-between;
   padding-right: 10px;
 }
-#home {
+#home, #navbarActivities, #routinesNav, #logout, #myRoutines, #login {
   padding-right: 10px;
   text-decoration: none;
   color: white;
-}
-#navbarActivities{
-  padding-right: 10px;
-  text-decoration: none;
-  color: white;
-
 }
 
-#logout{
-  padding-right: 10px;
-  text-decoration: none;
-  color: white;
-}
-#myRoutines{
-  padding-right: 10px;
-  text-decoration: none;
-  color: white;
-}
 
 .activitiesTab{
   border:1px solid black;
