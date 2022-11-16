@@ -99,7 +99,7 @@ export async function getMyRoutine(username, token) {
   }
 }
 
-export async function AddRoutine(token) {
+export async function AddRoutine(token, name, goal, isPublic) {
   try {
     const options = {
       method: "POST",
@@ -108,11 +108,13 @@ export async function AddRoutine(token) {
         'Authorization': `Bearer ${token}`,
       },
 	  body: JSON.stringify({
-		name,
-		goal,
-		isPublic
+		// routine:{
+			name,
+			goal,
+			isPublic,
+		// },
 		
-	  })
+	  }),
 	
     };
 	const response = await fetch(`${BASE_URL}/routines`, options)
