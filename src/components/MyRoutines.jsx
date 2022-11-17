@@ -1,67 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { getMyRoutine } from "../api";
+import { getMyRoutine, updateRoutine } from "../api";
+import MySingleRoutine from "./MySingleRoutine";
 import CreateRoutine from "./CreateRoutine";
 import Routines from "./Routines";
+
 
 const MyRoutines = (props) => {
   //   const username = props.username;
   const user = localStorage.getItem("user");
-  console.log(user, " this is user");
-
   const [myRoutines, setMyRoutines] = useState([]);
-  useEffect(() => {
-    async function fetchMyRoutines() {
-      const token = localStorage.getItem("token");
-      if (user && token) {
-        const allMyRoutines = await getMyRoutine(user, token);
-        console.log(allMyRoutines, "this is all my routines");
-        setMyRoutines(allMyRoutines);
-      }
-    }
-    fetchMyRoutines();
-  }, [user]);
 
-  return (
+	
+	  const token = localStorage.getItem("token");
+	useEffect(() => {
+	  async function fetchMyRoutines() {
+		  if (user && token) {
+			  const allMyRoutines = await getMyRoutine(user, token);
+			  setMyRoutines(allMyRoutines);
+			}
+		}
+		fetchMyRoutines();
+	}, [user]);
+
+
+  return(
+    <>
     <div>
-      <CreateRoutine user={user} />
-      <h4>my routines under here</h4>
-      <div>
-        {myRoutines.map((routine) => {
-          console.log(myRoutines);
-          return (
-            <div className="myRoutines" key ={`myRoutine-id${routine.id}`}>
-              <div>
-                <b>Routine Name:</b> {routine.name}
-              </div>
-              <div>
-                <b>Goal:</b> {routine.goal}{" "}
-              </div>
-              //will need to map over activities once activities are added
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-{
-  /* <h4>myroutineshere</h4>
-    //   {routines.map((routine) => { */
-}
-{
-  /* //     return( 
-	// 		// if (routine.creatorName === username){ */
-}
-/* // 		// 	return(
+		<CreateRoutine user={user} />
+		<h4>my routines under here</h4>
+		</div>
+  
 
-	// 		// 	)
-	// 		// }
-
-	// 	<div>{routine.username}</div>
-    // //   )})}
-	//   	</div>
-    // </div>
-//   );
-// }; */
-
+<h4>myroutineshere</h4>
+  {myRoutines.length ? myRoutines.map((routine)=>{
+    return <MySingleRoutine key ={`myRoutine-id${routine.id}`} routine={routine}/>
+  }):<h2>Loading your routines...</h2>}
+  </>
+)};
 export default MyRoutines;

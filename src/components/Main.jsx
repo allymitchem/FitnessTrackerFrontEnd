@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Navbar, Activities, Login, MyRoutines, Register, Routines, Home} from './'
+import {Navbar, Activities, Login, MyRoutines, Register, Routines, Home, EditMySingleRoutine} from './'
 import {Route, Routes} from "react-router-dom";
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -28,7 +28,9 @@ const Main = () => {
       <Route path="activities" element={<Activities/>}/>
       <Route path="routines" element={<Routines/>}/>
       <Route path="/me" element={<MyRoutines username={username}/>}/>
+      <Route path="/editmyroutine" element={<EditMySingleRoutine/>}/>
       <Route path="/" element={<Home/>}/>
+      
     </Routes>
   </div>
   );

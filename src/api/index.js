@@ -91,8 +91,7 @@ export async function getMyRoutine(username, token) {
       },
     });
     const result = await response.json();
-    console.log(result, "this is result");
-
+   
     return result;
   } catch (error) {
     console.error(error);
@@ -119,10 +118,29 @@ export async function AddRoutine(token, name, goal, isPublic) {
     };
 	const response = await fetch(`${BASE_URL}/routines`, options)
 	const result = await response.json()
-	console.log(result)
+	
 
 	
   } catch (error) {
     console.error();
   }
 }
+
+export async function updateRoutine(token, routine, routineId){
+  try{
+    const options = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`,
+    }, 
+    body: JSON.stringify(
+     routine
+    )
+  }
+  const response = await fetch(`${BASE_URL}/routines/${routineId}`, options)
+  const result = await response.json()
+  
+}catch(error){
+  console.error()
+}}
