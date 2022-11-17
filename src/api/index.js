@@ -140,7 +140,8 @@ export async function updateRoutine(token, routine, routineId){
   }
   const response = await fetch(`${BASE_URL}/routines/${routineId}`, options)
   const result = await response.json()
-  
+  return result
 }catch(error){
   console.error()
 }}
+
