@@ -2,6 +2,10 @@ import React, {useState} from "react";
 import { AddRoutine } from "../api";
 
 const CreateRoutine = (props) =>{
+	const myRoutines = props.myRoutines
+	
+	const setMyRoutines = props.setMyRoutines
+	
 	// const username = props.username
 	const [name, setName] = useState('')
 	const [goal, setGoal] = useState('')
@@ -16,6 +20,10 @@ const CreateRoutine = (props) =>{
 			const newRoutine = await AddRoutine(token, name, goal, isPublic)
 			console.log(newRoutine, "this is new routine")
 			
+			setMyRoutines([
+				...myRoutines,
+				newRoutine
+			])
 
 			
 
@@ -49,7 +57,7 @@ const CreateRoutine = (props) =>{
 				<select type="select" id="isPublic" onChange={(event)=>{
 					setIsPublic(event.target.value)
 					
-				}} >
+				}} required>
 					<option value="">--Please select an option--</option>
 					<option id="no" value={false}>No</option>
 					<option id="yes" value ={true}>Yes</option>

@@ -27,9 +27,9 @@ const MySingleRoutine = (props) => {
     e.preventDefault()
     const toDelete = e.target.id
     const deleted = await deleteRoutine(token, toDelete)
-    console.log(deleted, "this is deleted")
+    
     if (deleted.success){
-      const updatedRoutines = myRoutines.filter((deletedThing)=>{
+      const updatedRoutines = myRoutines.filter((routine)=>{
        if (routine.id == deleted.id){
         return false
        }

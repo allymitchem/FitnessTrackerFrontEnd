@@ -119,7 +119,7 @@ export async function AddRoutine(token, name, goal, isPublic) {
 	const response = await fetch(`${BASE_URL}/routines`, options)
 	const result = await response.json()
 	
-
+return result
 	
   } catch (error) {
     console.error(error);
