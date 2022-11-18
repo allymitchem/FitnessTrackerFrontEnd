@@ -39,6 +39,7 @@ const MyRoutines = (props) => {
               myRoutines={myRoutines}
               setMyRoutines={setMyRoutines}
               activities={activities}
+              setActivities={setActivities}
             />
           );
         })

@@ -25,7 +25,7 @@ export async function getActivities() {
   });
 
   const result = await response.json();
-  console.log(result, 'this is result')
+  
 
   return result;
 }
@@ -98,6 +98,8 @@ export async function getMyRoutine(username, token) {
     console.error(error);
   }
 }
+
+
 
 export async function AddRoutine(token, name, goal, isPublic) {
   try {
@@ -179,9 +181,9 @@ try {
 
   }
   const response = await fetch (`${BASE_URL}/routines/${routineId}/activities`, options)
-  console.log(response, 'this is response')
+ 
   const result = await response.json()
-  console.log(result, 'this is result')
+ 
   return result
 } catch(error){
   console.error(error)
