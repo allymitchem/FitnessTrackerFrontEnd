@@ -5,32 +5,45 @@ const ActivityRoutine = (props) => {
   const [activityId, setActivityId] = useState("");
   const [duration, setDuration] = useState("");
   const [count, setCount] = useState("");
+  const [myActivities, setMyActivities]= useState([])
+  console.log(myActivities, "this is my activities")
   const myRoutines = props.myRoutines;
   const setMyRoutines = props.setMyRoutines;
   const routine = props.routine;
   const routineId = routine.id;
   const activities = props.activities;
- 
+  const routineActivities = props.routineActivities
+ const setRoutineActivities=props.setRoutineActivities
   const setActivities = props.setActivities;
 //   const [formDetails, setFormDetails] = useState({
 //     activityId: "",
 //     count: "",
 //     duration: "",
 //   });
+
   
   async function handleAdd(e) {
     e.preventDefault();
     const activityIdValue = Number(activityId);
     const countValue = Number(count);
     const durationValue = Number(duration);
-	console.log( 'this is formdetails')
+	
     const toAddActivity = await AddRoutineActivity(
       routineId,
       activityIdValue,
       countValue,
       durationValue
-    );
-    console.log(toAddActivity, "this is to add activity");
+      );
+      console.log(toAddActivity, "is this successful?")
+//need to add activities to routines update of state?
+
+    if (!toAddActivity.error){
+     setRoutineActivities([
+      ...routineActivities,
+       toAddActivity
+     ])
+    }
+    ;
   }
 
   return (

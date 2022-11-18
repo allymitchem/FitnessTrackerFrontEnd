@@ -6,7 +6,7 @@ import ActivityRoutine  from './ActivityRoutine'
 const MySingleRoutine = (props) => {
   
   const routine = props.routine;
-  console.log(routine, "this is routine")
+  const [routineActivities, setRoutineActivities]= useState(routine.activities)
   const myRoutines = props.myRoutines;
   const setMyRoutines = props.setMyRoutines;
   const activities = props.activities
@@ -70,14 +70,33 @@ const MySingleRoutine = (props) => {
       <div>
         <b>Goal:</b> {routine.goal}{" "}
       </div>
+      
       {/* <div>
         <b>Public?</b> {routine.isPublic}
       </div> */}
 
       <div>
-       
+      {routineActivities.map((routineActivity) => {
+        
+                return (
+                  <div id="activities" key={`activity-id${routineActivity.id}`}>
+                    <div>
+                      <b>Activity Name:</b> {routineActivity.name}
+                    </div>
+                    {/* <div>
+                      <b>Description:</b> {activity.description}
+                    </div> */}
+                    <div>
+                      <b>Count:</b> {routineActivity.count}
+                    </div>
+                    <div>
+                      <b>Duration:</b> {routineActivity.duration}{" "}
+                    </div>
+                  </div>
+                );
+              })}
       </div>
-      <ActivityRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} routine={routine} activities={activities} setActivities={setActivities} />
+      <ActivityRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} routine={routine} activities={activities} routineActivities={routineActivities} setRoutineActivities={setRoutineActivities} />
       <form onSubmit={handleSubmit}>
         <p>Edit post below</p>
         <div>
