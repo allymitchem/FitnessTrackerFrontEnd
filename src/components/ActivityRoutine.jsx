@@ -5,54 +5,54 @@ const ActivityRoutine = (props) => {
   const [activityId, setActivityId] = useState("");
   const [duration, setDuration] = useState("");
   const [count, setCount] = useState("");
-  const [myActivities, setMyActivities]= useState([])
-  console.log(myActivities, "this is my activities")
+  const [myActivities, setMyActivities] = useState([]);
+  const [name, setName] = useState("");
   const myRoutines = props.myRoutines;
   const setMyRoutines = props.setMyRoutines;
   const routine = props.routine;
   const routineId = routine.id;
   const activities = props.activities;
-  const routineActivities = props.routineActivities
- const setRoutineActivities=props.setRoutineActivities
-  const setActivities = props.setActivities;
-//   const [formDetails, setFormDetails] = useState({
-//     activityId: "",
-//     count: "",
-//     duration: "",
-//   });
+  const routineActivities = props.routineActivities;
+  const setRoutineActivities = props.setRoutineActivities;
 
-  
+  const setActivities = props.setActivities;
+  //   const [formDetails, setFormDetails] = useState({
+  //     activityId: "",
+  //     count: "",
+  //     duration: "",
+  //   });
+
   async function handleAdd(e) {
     e.preventDefault();
     const activityIdValue = Number(activityId);
     const countValue = Number(count);
     const durationValue = Number(duration);
-	
+
     const toAddActivity = await AddRoutineActivity(
       routineId,
       activityIdValue,
       countValue,
       durationValue
-      );
-      console.log(toAddActivity, "is this successful?")
-//need to add activities to routines update of state?
-
-    if (!toAddActivity.error){
-     setRoutineActivities([
-      ...routineActivities,
-       toAddActivity
-     ])
+    );
+console.log(toAddActivity, 'this is toAddactivity')
+    //need to add activities to routines update of state?
+	console.log(name, 'this is name')
+const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAddActivity.id, count:toAddActivity.count}
+    if (!toAddActivity.error) {
+      setRoutineActivities([...routineActivities, newRoutineActivity]);
     }
-    ;
   }
 
   return (
     <div>
       <h3> RoutineActivity </h3>
       <form onSubmit={handleAdd}>
-        <select onChange={(e)=>{
-			setActivityId(e.target.value)
-		}}>
+        <select
+          onChange={(e) => {
+            setActivityId(e.target.value);
+            setName(e.target.name)
+          }}
+        >
           <option>--Select an option---</option>
           {activities && activities.length
             ? activities.map((activity) => {
@@ -73,7 +73,6 @@ const ActivityRoutine = (props) => {
             value={duration}
             onChange={(e) => {
               setDuration(e.target.value);
-              ;
             }}
             required
           ></input>
@@ -84,7 +83,6 @@ const ActivityRoutine = (props) => {
             value={count}
             onChange={(e) => {
               setCount(e.target.value);
-              ;
             }}
             required
           ></input>{" "}
