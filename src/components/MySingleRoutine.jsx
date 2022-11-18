@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { updateRoutine, deleteRoutine } from "../api";
+import ActivityRoutine  from './ActivityRoutine'
 
 const MySingleRoutine = (props) => {
+  console.log(props, 'this is props')
   const routine = props.routine;
   const myRoutines = props.myRoutines;
   const setMyRoutines = props.setMyRoutines;
+  const activities = props.activities
+  const setActivities = props.setActivities
   const user = localStorage.getItem("user");
   const token = localStorage.getItem("token");
   const [formDetails, setFormDetails] = useState({
@@ -68,6 +72,7 @@ const MySingleRoutine = (props) => {
       {/* <div>
         <b>Public?</b> {routine.isPublic}
       </div> */}
+      <ActivityRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} routine={routine} activities={activities} setActivities={setActivities} />
       <form onSubmit={handleSubmit}>
         <p>Edit post below</p>
         <div>

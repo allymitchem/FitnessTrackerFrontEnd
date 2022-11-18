@@ -25,6 +25,7 @@ export async function getActivities() {
   });
 
   const result = await response.json();
+  console.log(result, 'this is result')
 
   return result;
 }
@@ -157,9 +158,32 @@ export async function deleteRoutine(token, routineId){
   }
   const response = await fetch (`${BASE_URL}/routines/${routineId}`, options)
   const result = await response.json()
-  console.log(result, "delete api result")
   return result
   } catch(error){
     console.error(error)
   }
+}
+
+export async function AddRoutineActivity(routineId, activityId, count, duration) {
+try {
+  const options = {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      activityId, 
+      count, 
+      duration,
+    })
+
+  }
+  const response = await fetch (`${BASE_URL}/routines/${routineId}/activities`, options)
+  console.log(response, 'this is response')
+  const result = await response.json()
+  console.log(result, 'this is result')
+  return result
+} catch(error){
+  console.error(error)
+}
 }

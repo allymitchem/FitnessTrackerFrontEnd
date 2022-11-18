@@ -1,15 +1,9 @@
 import React, {useState, useEffect} from "react"
 import { getActivities, getActivityRoutines } from "../api";
 
-const Activities = () => {
-    const [activities, setActivities] = useState([]);
-    useEffect(() => {
-      async function fetchActivities() {
-        const allActivities = await getActivities();
-        setActivities(allActivities);
-      }
-      fetchActivities();
-    }, []);
+const Activities = ({activities, setActivities}) => {
+    // const [activities, setActivities] = useState([]);
+    
 	
     return (
         <div>
@@ -17,7 +11,8 @@ const Activities = () => {
             <h3 className="activitiesTitle">All Activities</h3>
           </div>
           <div>
-            {activities.map((activity) => {
+            {
+            activities && activities.length ?  activities.map((activity) => {
                 
               return (
                 <div className="activitiesTab" key={`activities-id${activity.id}`}>
@@ -33,7 +28,9 @@ const Activities = () => {
                   
                 </div>
               );
-            })}
+            }): null
+           
+            }
           </div>
         </div>
       );

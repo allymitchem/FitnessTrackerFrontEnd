@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {Navbar, Activities, Login, MyRoutines, Register, Routines, Home, EditMySingleRoutine} from './'
+import {Navbar, Activities, Login, MyRoutines, Register, Routines, Home} from './'
 import {Route, Routes} from "react-router-dom";
+import { getActivities } from "../api";
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [username, setUsername] = useState('');
+  const [activities, setActivities] = useState([]);
   const getLoggedInUser = async () =>{
     const token = localStorage.getItem('token')
     
@@ -18,6 +20,13 @@ const Main = () => {
       getLoggedInUser()
     }
   }, [])
+  useEffect(() => {
+    async function fetchActivities() {
+      const allActivities = await getActivities();
+      setActivities(allActivities);
+    }
+    fetchActivities();
+  }, []);
   return (
     <div id="main">
     <Navbar loggedIn={loggedIn} setLoggedIn= {setLoggedIn}/>
@@ -25,10 +34,9 @@ const Main = () => {
     <Routes>
       <Route path="login" element={<Login getLoggedInUser={getLoggedInUser} username={username} setUsername={setUsername} setLoggedIn={setLoggedIn}/>}/>
       <Route path="login/register" element={<Register/>}/>
-      <Route path="activities" element={<Activities/>}/>
+      <Route path="activities" element={<Activities activities={activities} setActivities={setActivities}/>}/>
       <Route path="routines" element={<Routines/>}/>
-      <Route path="/me" element={<MyRoutines username={username}/>}/>
-      <Route path="/editmyroutine" element={<EditMySingleRoutine/>}/>
+      <Route path="/me" element={<MyRoutines username={username} activities={activities} setActivities={setActivities}/>}/>
       <Route path="/" element={<Home/>}/>
       
     </Routes>

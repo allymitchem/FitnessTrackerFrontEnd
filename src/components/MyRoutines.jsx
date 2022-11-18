@@ -8,6 +8,8 @@ const MyRoutines = (props) => {
   //   const username = props.username;
   const user = localStorage.getItem("user");
   const [myRoutines, setMyRoutines] = useState([]);
+  const activities = props.activities
+  const setActivities = props.setActivities
 
   const token = localStorage.getItem("token");
   useEffect(() => {
@@ -36,6 +38,7 @@ const MyRoutines = (props) => {
               routine={routine}
               myRoutines={myRoutines}
               setMyRoutines={setMyRoutines}
+              activities={activities}
             />
           );
         })
