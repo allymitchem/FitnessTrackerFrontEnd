@@ -27,7 +27,14 @@ const ActivityRoutine = (props) => {
     const activityIdValue = Number(activityId);
     const countValue = Number(count);
     const durationValue = Number(duration);
-
+	console.log(activities, 'this is activities')
+	{
+		const updatedActivities = activities.filter((activity) => {
+		  if (activity.name== name) {
+			return false;
+		  }
+		  return true;
+		})};
     const toAddActivity = await AddRoutineActivity(
       routineId,
       activityIdValue,
@@ -51,6 +58,7 @@ const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAdd
           onChange={(e) => {
             setActivityId(e.target.value);
             setName(e.target.name)
+			console.log(e.target.value,'this is e.target')
           }}
         >
           <option>--Select an option---</option>
@@ -58,7 +66,8 @@ const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAdd
             ? activities.map((activity) => {
                 return (
                   <option
-                    value={activity.id}
+				    value={activity.name}
+                    id={activity.id}
                     key={`routine-activity${activity.id}`}
                   >
                     {activity.name}

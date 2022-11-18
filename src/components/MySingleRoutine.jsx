@@ -74,10 +74,12 @@ const MySingleRoutine = (props) => {
 
       <div>
         {routineActivities.map((activity) => {
+          console.log(activity.name)
           return (
             <div id="activities" key={`activity-id${activity.id}`}>
               <div>
                 <b>Activity Name:</b> {activity.name}
+                
               </div>
               {/* <div>
                       <b>Description:</b> {activity.description}
@@ -99,6 +101,7 @@ const MySingleRoutine = (props) => {
         activities={activities}
         routineActivities={routineActivities}
         setRoutineActivities={setRoutineActivities}
+      
       />
       <form onSubmit={handleSubmit}>
         <p>Edit post below</p>
