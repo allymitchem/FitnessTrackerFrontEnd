@@ -10,14 +10,14 @@ const ActivityRoutine = (props) => {
   const routine = props.routine;
   const routineId = routine.id;
   const activities = props.activities;
-  console.log(activities, "this is activities");
+ 
   const setActivities = props.setActivities;
 //   const [formDetails, setFormDetails] = useState({
 //     activityId: "",
 //     count: "",
 //     duration: "",
 //   });
-  console.log(activityId, count, duration);
+  
   async function handleAdd(e) {
     e.preventDefault();
     const activityIdValue = Number(activityId);
@@ -60,7 +60,7 @@ const ActivityRoutine = (props) => {
             value={duration}
             onChange={(e) => {
               setDuration(e.target.value);
-              console.log(duration, "this is duration");
+              ;
             }}
             required
           ></input>
@@ -71,7 +71,7 @@ const ActivityRoutine = (props) => {
             value={count}
             onChange={(e) => {
               setCount(e.target.value);
-              console.log(count, "this is count");
+              ;
             }}
             required
           ></input>{" "}

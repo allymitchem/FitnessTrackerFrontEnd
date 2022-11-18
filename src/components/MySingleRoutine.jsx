@@ -4,8 +4,9 @@ import { updateRoutine, deleteRoutine } from "../api";
 import ActivityRoutine  from './ActivityRoutine'
 
 const MySingleRoutine = (props) => {
-  console.log(props, 'this is props')
+  
   const routine = props.routine;
+  console.log(routine, "this is routine")
   const myRoutines = props.myRoutines;
   const setMyRoutines = props.setMyRoutines;
   const activities = props.activities
@@ -72,6 +73,10 @@ const MySingleRoutine = (props) => {
       {/* <div>
         <b>Public?</b> {routine.isPublic}
       </div> */}
+
+      <div>
+       
+      </div>
       <ActivityRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} routine={routine} activities={activities} setActivities={setActivities} />
       <form onSubmit={handleSubmit}>
         <p>Edit post below</p>
