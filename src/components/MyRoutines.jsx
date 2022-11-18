@@ -23,7 +23,7 @@ const MyRoutines = (props) => {
   return (
     <>
       <div>
-        <CreateRoutine user={user} />
+        <CreateRoutine user={user}  myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
         <h4>my routines under here</h4>
       </div>
 
