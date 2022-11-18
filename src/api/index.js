@@ -122,7 +122,7 @@ export async function AddRoutine(token, name, goal, isPublic) {
 
 	
   } catch (error) {
-    console.error();
+    console.error(error);
   }
 }
 
@@ -142,6 +142,24 @@ export async function updateRoutine(token, routine, routineId){
   const result = await response.json()
   return result
 }catch(error){
-  console.error()
+  console.error(error)
 }}
 
+
+export async function deleteRoutine(token, routineId){
+  try{
+    const options = {
+    method: "DELETE",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  }
+  const response = await fetch (`${BASE_URL}/routines/${routineId}`, options)
+  const result = await response.json()
+  console.log(result, "delete api result")
+  return result
+  } catch(error){
+    console.error(error)
+  }
+}

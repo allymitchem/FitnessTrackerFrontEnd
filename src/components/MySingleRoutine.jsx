@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { getMyRoutine, updateRoutine } from "../api";
+import { updateRoutine, deleteRoutine } from "../api";
 
 const MySingleRoutine = (props) => {
   const routine = props.routine;
@@ -22,11 +22,19 @@ const MySingleRoutine = (props) => {
     };
     setFormDetails(updatedForm);
   }
+
+  async function handleDelete(e){
+    e.preventDefault()
+    const toDelete = e.target.id
+    const deleted = await deleteRoutine(token, toDelete)
+    console.log(e.target.id, "this is toDelete")
+    console.log(deleted, "this is deleted")
+  }
   async function handleSubmit(e) {
     e.preventDefault();
     const editedRoutine = await updateRoutine(token, formDetails, routine.id);
 	const updatedRoutines = myRoutines.map((routineThing)=>{
-		console.log(routineThing.id, editedRoutine)
+		
 		const condition = routineThing.id == editedRoutine.id
 		return ( condition ? editedRoutine : routineThing )
 	}) 
@@ -34,6 +42,8 @@ const MySingleRoutine = (props) => {
     setMyRoutines(updatedRoutines);
     // console.log(setMyRoutines)
   }
+
+  
 
   return (
     <div className="myRoutines">
@@ -43,9 +53,9 @@ const MySingleRoutine = (props) => {
       <div>
         <b>Goal:</b> {routine.goal}{" "}
       </div>
-      <div>
+      {/* <div>
         <b>Public?</b> {routine.isPublic}
-      </div>
+      </div> */}
       <form onSubmit={handleSubmit}>
         <p>Edit post below</p>
         <div>
@@ -70,6 +80,8 @@ const MySingleRoutine = (props) => {
 							<option value={true}>Yes</option>
 						</select>  */}
           <button type="submit">Submit</button>
+          <br></br>
+          <button id={routine.id} onClick={handleDelete}>Delete Post</button>
         </div>
       </form>
     </div>
