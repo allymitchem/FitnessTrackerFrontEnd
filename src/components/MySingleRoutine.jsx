@@ -27,8 +27,20 @@ const MySingleRoutine = (props) => {
     e.preventDefault()
     const toDelete = e.target.id
     const deleted = await deleteRoutine(token, toDelete)
-    console.log(e.target.id, "this is toDelete")
     console.log(deleted, "this is deleted")
+    if (deleted.success){
+      const updatedRoutines = myRoutines.filter((deletedThing)=>{
+       if (routine.id == deleted.id){
+        return false
+       }
+      return true
+    })
+    
+      // const bob = deletedThing.id == deletedRoutine.id
+      // return (bob ? deleted : deletedThing)
+      setMyRoutines(updatedRoutines)
+    }
+
   }
   async function handleSubmit(e) {
     e.preventDefault();
