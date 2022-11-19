@@ -25,7 +25,7 @@ const EditActivity = (props) => {
 	  
 	  e.preventDefault();
 	  const token = localStorage.getItem("token");
-	  console.log(token, 'this is token')
+	//   console.log(token, 'this is token')
 	// const routineActivityIdValue = (formDetails.routineActivity.id)
 	const countValue = (formDetails.count)
 	const durationValue = (formDetails.duration)
@@ -36,18 +36,19 @@ const EditActivity = (props) => {
 		routineActivity.routineActivityId,
 		
     );
+	changedActivity.name = routineActivity.name
 	const editedActivity = routineActivities.map((routineThing)=>{
-		console.log(routineThing, 'this is routineThing')
-		console.log(changedActivity, 'this is changedActivity')
+		// console.log(routineThing, 'this is routineThing')
+		// console.log(changedActivity, 'this is changedActivity')
 		const condition = routineThing.routineActivityId == changedActivity.id
 		
 		return condition ? changedActivity : routineThing
 
 	})
 	setRoutineActivities(editedActivity)
-	console.log(token, countValue, durationValue, routineActivity.id)
-	console.log(changedActivity, 'this is changed activity')
-	console.log(updateActivityRoutine, 'this is updateActRout')
+	// console.log(token, countValue, durationValue, routineActivity.id)
+	// console.log(changedActivity, 'this is changed activity')
+	// console.log(updateActivityRoutine, 'this is updateActRout')
   }
   return(
 	<form onSubmit={handleSubmit}>
