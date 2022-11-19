@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { updateActivityRoutine } from "../api";
 const EditActivity = (props) => {
 	const routineActivities = props.routineActivities
+	console.log(routineActivities, 'this is routineActs')
 	const routineActivity = props.routineActivity
+	const setRoutineActivities = props.setRoutineActivities
+	console.log(setRoutineActivities, 'this is setRoutineActs')
 	console.log(routineActivity, 'this is routineActivity')
 	console.log(routineActivities, 'this is routine Activities')
 	const [count, setCount] = useState('')
@@ -33,6 +36,15 @@ const EditActivity = (props) => {
 		routineActivity.routineActivityId,
 		
     );
+	const editedActivity = routineActivities.map((routineThing)=>{
+		console.log(routineThing, 'this is routineThing')
+		console.log(changedActivity, 'this is changedActivity')
+		const condition = routineThing.routineActivityId == changedActivity.id
+		
+		return condition ? changedActivity : routineThing
+
+	})
+	setRoutineActivities(editedActivity)
 	console.log(token, countValue, durationValue, routineActivity.id)
 	console.log(changedActivity, 'this is changed activity')
 	console.log(updateActivityRoutine, 'this is updateActRout')

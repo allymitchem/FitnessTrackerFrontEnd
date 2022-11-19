@@ -93,7 +93,7 @@ const MySingleRoutine = (props) => {
                 <b>Duration:</b> {routineActivity.duration}{" "}
               </div>
               {/* <button>Edit</button> */}
-              <EditActivity myRoutines={myRoutines} setMyRoutines={setMyRoutines} routineActivities={routineActivities} routineActivity={routineActivity}/>
+              <EditActivity myRoutines={myRoutines} setMyRoutines={setMyRoutines} routineActivities={routineActivities} routineActivity={routineActivity} setRoutineActivities={setRoutineActivities}/>
               
             </div>
           );
