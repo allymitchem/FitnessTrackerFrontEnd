@@ -77,8 +77,8 @@ const MySingleRoutine = (props) => {
 
       <div>
         {routineActivities.map((routineActivity) => {
-          console.log(routineActivity.name)
-          console.log(routineActivity.routineActivityId, 'this is routineActivity/routActId')
+          // console.log(routineActivity.name)
+          // console.log(routineActivity.routineActivityId, 'this is routineActivity/routActId')
           return (
             <div id="activities" key={`activity-id${routineActivity.id}`}>
               <div>

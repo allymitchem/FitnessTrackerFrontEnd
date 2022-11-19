@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { updateActivityRoutine, deleteActivityRoutine } from "../api";
 const EditActivity = (props) => {
 	const routineActivities = props.routineActivities
-	console.log(routineActivities, 'this is routineActs')
+	// console.log(routineActivities, 'this is routineActs')
 	const routineActivity = props.routineActivity
 	const setRoutineActivities = props.setRoutineActivities
-	console.log(setRoutineActivities, 'this is setRoutineActs')
-	console.log(routineActivity, 'this is routineActivity')
-	console.log(routineActivities, 'this is routine Activities')
+	// console.log(setRoutineActivities, 'this is setRoutineActs')
+	// console.log(routineActivity, 'this is routineActivity')
+	// console.log(routineActivities, 'this is routine Activities')
 	const [count, setCount] = useState('')
 	const [duration, setDuration] = useState('')
 	const [formDetails, setFormDetails] = useState({
@@ -59,7 +59,8 @@ const EditActivity = (props) => {
 console.log(deleted, "this is deleted")
     if (deleted.success) {
       const updatedActivityRoutines = routineActivities.filter((activity) => {
-        if (activity.id == deleted.id) {
+		console.log(activity, "this is activity")
+        if (activity.routineActivityId == deleted.id) {
           return false;
         }
         return true;
