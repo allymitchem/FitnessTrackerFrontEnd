@@ -26,10 +26,10 @@ const MyRoutines = (props) => {
     <>
       <div>
         <CreateRoutine user={user}  myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
-        <h4>my routines under here</h4>
+       
       </div>
 
-      <h4>my routines here</h4>
+      <h4>My Routines</h4>
       {myRoutines.length ? (
         myRoutines.map((routine) => {
           return (

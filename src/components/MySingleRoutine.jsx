@@ -75,13 +75,13 @@ const MySingleRoutine = (props) => {
         <b>Public?</b> {routine.isPublic}
       </div> */}
 
-      <div>
+      <div >
         {routineActivities.map((routineActivity) => {
           // console.log(routineActivity.name)
           // console.log(routineActivity.routineActivityId, 'this is routineActivity/routActId')
           return (
             <div id="activities" key={`activity-id${routineActivity.id}`}>
-              <div>
+              <div className="myActivitiesList">
                 <b>Activity Name:</b> {routineActivity.name}
                 
               </div>
@@ -101,7 +101,7 @@ const MySingleRoutine = (props) => {
           );
         })}
         
-         {/* edit button here */}
+        
       </div>
       
       <ActivityRoutine
@@ -114,7 +114,7 @@ const MySingleRoutine = (props) => {
       
       />
       <form onSubmit={handleSubmit}>
-        <p>Edit post below</p>
+        <p>Edit Routine Below</p>
         <div>
           <label>Name</label>
           <input

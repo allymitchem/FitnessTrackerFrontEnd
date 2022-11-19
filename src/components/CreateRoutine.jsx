@@ -11,7 +11,7 @@ const CreateRoutine = (props) =>{
 	const [goal, setGoal] = useState('')
 	const [isPublic, setIsPublic] = useState(null)
 
-	const user= localStorage.getItem("user")
+	// const user= localStorage.getItem("user")
 			// console.log(user, "user")
 	async function handleSubmit(event){
 		event.preventDefault()
@@ -34,10 +34,11 @@ const CreateRoutine = (props) =>{
 
 	}
 	return(
-		<div>
+		<div id="createRoutine">
 			<form onSubmit={handleSubmit}>
-				<p>Create a new routine here</p>
-				<label htmlFor="name">Name: </label>
+				<p><b>Create a new routine here</b></p>
+				<span id="nameGoal">
+				<label htmlFor="name"><b>Name: </b></label>
 				<input type="text" placeholder="name"
 				value={name}
 				onChange={(event)=> {
@@ -45,15 +46,16 @@ const CreateRoutine = (props) =>{
 				}}
 				required/>
 				<br/>
-				<label htmlFor="goal">Goal: </label>
+				<label htmlFor="goal"><b>Goal: </b></label>
 				<input type="text" placeholder="goal"
 				value={goal}
 				onChange={(event)=>{
 					setGoal(event.target.value)
 				}}
 				required/>
+				</span>
 				<br/>
-				<label htmlFor="isPublic">Make this routine public? </label>
+				<label htmlFor="isPublic"><b>Make this routine public? </b></label>
 				<select type="select" id="isPublic" onChange={(event)=>{
 					setIsPublic(event.target.value)
 					

@@ -4,20 +4,23 @@ import CreateActivity from "./CreateActivity";
 
 const Activities = ({activities, setActivities}) => {
     // const [activities, setActivities] = useState([]);
-    
+    const user = localStorage.getItem("user")
+    const token = localStorage.getItem("token")
 	
     return (
         <div>
           <div>
-            <h3 className="activitiesTitle">All Activities</h3>
+            
           </div>
-          <CreateActivity activities={activities} setActivities={setActivities}/>
+          {user && token ? <CreateActivity activities={activities} setActivities={setActivities}/> : null}
+          
+          <h3 className="activitiesTitle">All Activities</h3>
           <div>
             {
             activities && activities.length ?  activities.map((activity) => {
                 
               return (
-                <div className="activitiesTab" key={`all-activities-id${activity.id}`}>
+                <div className="activitiesTab" id="activities" key={`all-activities-id${activity.id}`}>
                   <div id="activityList">
                   <div>
                       <b>Activity Name:</b> {activity.name}

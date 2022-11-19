@@ -66,8 +66,6 @@ console.log(deleted, "this is deleted")
         return true;
       });
 
-      // const bob = deletedThing.id == deletedRoutine.id
-      // return (bob ? deleted : deletedThing)
       setRoutineActivities(updatedActivityRoutines);
     }
   }

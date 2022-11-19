@@ -5,17 +5,17 @@ const ActivityRoutine = (props) => {
   const [activityId, setActivityId] = useState("");
   const [duration, setDuration] = useState("");
   const [count, setCount] = useState("");
-  const [myActivities, setMyActivities] = useState([]);
-  const [name, setName] = useState("");
-  const myRoutines = props.myRoutines;
-  const setMyRoutines = props.setMyRoutines;
+  // const [myActivities, setMyActivities] = useState([]);
+  // const [name, setName] = useState("");
+  // const myRoutines = props.myRoutines;
+  // const setMyRoutines = props.setMyRoutines;
   const routine = props.routine;
   const routineId = routine.id;
   const activities = props.activities;
   const routineActivities = props.routineActivities;
   const setRoutineActivities = props.setRoutineActivities;
 
-  const setActivities = props.setActivities;
+  // const setActivities = props.setActivities;
   async function handleAdd(e) {
     e.preventDefault();
     const activityIdValue = Number(activityId);

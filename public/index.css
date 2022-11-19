@@ -152,7 +152,49 @@ img {
 
 .myRoutines{
   border:1px solid black;
+
+  border-radius:5px;
   padding:5px;
-  margin: 5px;
+  margin-right: 10px;
+  margin-left:10px;
+  margin-bottom:10px;
+  background-color:#bef5c3 ;
+}
+#activities{
+  background-image: linear-gradient(to right, #329D9C, #56C596) ;
+  border-radius:10px;
+  margin-bottom:4px;
 }
 
+#createRoutine{
+  border:1px solid black;
+  border-radius:5px;
+  margin:10px;
+  padding:5px;
+  background-image: linear-gradient(to right, #56C596,#329D9C);
+
+}
+
+#createActivity{
+  border:1px solid black;
+  border-radius:5px;
+  margin:10px;
+  padding:5px;
+  background-image: linear-gradient(to right, #56C596,#329D9C);
+
+}
+
+#nameGoal{
+  display:flex;
+  flex-direction: column;
+  width:200px;
+  margin-bottom: 3px;
+  
+}
+
+#nameDescription{
+  display:flex;
+  flex-direction: column;
+  width:200px;
+  margin-bottom:3px;
+}
