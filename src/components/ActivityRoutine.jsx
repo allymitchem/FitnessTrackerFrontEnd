@@ -27,28 +27,28 @@ const ActivityRoutine = (props) => {
     const activityIdValue = Number(activityId);
     const countValue = Number(count);
     const durationValue = Number(duration);
-	console.log(activities, 'this is activities')
-	{
-		const updatedActivities = activities.filter((activity) => {
-		  if (activity.name== name) {
-			return false;
-		  }
-		  return true;
-		})};
+	// console.log(activities.activity, 'this is activities')
+	
+		// const updatedActivities = activities.filter((activity) => {
+		//   if (activity.name== name) {
+		// 	return false;
+		//   }
+		//   return true;
+		// })};
     const toAddActivity = await AddRoutineActivity(
       routineId,
       activityIdValue,
       countValue,
       durationValue
     );
-console.log(toAddActivity, 'this is toAddactivity')
+// console.log(toAddActivity, 'this is toAddactivity')
     //need to add activities to routines update of state?
-	console.log(name, 'this is name')
-const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAddActivity.id, count:toAddActivity.count}
+	// console.log(name, 'this is name')
+// const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAddActivity.id, count:toAddActivity.count}
     if (!toAddActivity.error) {
-      setRoutineActivities([...routineActivities, newRoutineActivity]);
-    }
-  }
+      setRoutineActivities([...routineActivities, toAddActivity]);
+    } }
+  
 
   return (
     <div>
@@ -57,8 +57,8 @@ const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAdd
         <select
           onChange={(e) => {
             setActivityId(e.target.value);
-            setName(e.target.name)
-			console.log(e.target.value,'this is e.target')
+            // setName(e.target.name)
+			// console.log(e.target.value,'this is e.target')
           }}
         >
           <option>--Select an option---</option>
@@ -66,8 +66,8 @@ const newRoutineActivity = {name:name, duration:toAddActivity.duration, id:toAdd
             ? activities.map((activity) => {
                 return (
                   <option
-				    value={activity.name}
-                    id={activity.id}
+				    // value={activity.name}
+                    value={activity.id}
                     key={`routine-activity${activity.id}`}
                   >
                     {activity.name}
