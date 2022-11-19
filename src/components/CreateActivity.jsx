@@ -15,17 +15,41 @@ const CreateActivity = (props)=>{
 			const token= localStorage.getItem("token")
 			const newActivity = await MakeActivity(token,name, description)
 			console.log(newActivity, "this is new activity")
-			
-			setActivities([
-				...activities,
-				newActivity
-			])
 
+            console.log(activities.includes(newActivity))
+
+                // activities.map((activity)=>{
+                //     if (newActivity.name == activity.name){
+                //         return (
+                //             alert(newActivity.message)
+                //         )
+                //     }})
+
+            //     if (!Error){
+            //     alert(newActivity.message)
+            // }
+            if (!newActivity.error) {
+                setActivities([...activities, newActivity]);
+              } else {
+                alert(newActivity.message)
+              }
+            
+               
+
+                //     setActivities([
+                //         ...activities,
+                //         newActivity
+                //     ])
+                // // })
+			
+ 
 			
 
 
 		} catch(error){
+            
 			console.error(error)
+            
 		}
     }
 

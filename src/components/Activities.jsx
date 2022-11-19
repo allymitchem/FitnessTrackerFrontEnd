@@ -17,7 +17,7 @@ const Activities = ({activities, setActivities}) => {
             activities && activities.length ?  activities.map((activity) => {
                 
               return (
-                <div className="activitiesTab" key={`activities-id${activity.id}`}>
+                <div className="activitiesTab" key={`all-activities-id${activity.id}`}>
                   <div id="activityList">
                   <div>
                       <b>Activity Name:</b> {activity.name}
