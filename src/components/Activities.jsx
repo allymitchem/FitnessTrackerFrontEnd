@@ -11,7 +11,7 @@ const Activities = ({activities, setActivities}) => {
           <div>
             <h3 className="activitiesTitle">All Activities</h3>
           </div>
-          <CreateActivity/>
+          <CreateActivity activities={activities} setActivities={setActivities}/>
           <div>
             {
             activities && activities.length ?  activities.map((activity) => {

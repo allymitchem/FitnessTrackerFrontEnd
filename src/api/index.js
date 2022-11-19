@@ -238,7 +238,7 @@ export async function deleteActivityRoutine(token, routineActivityId) {
   }
 }
 
-export async function CreateActivity(token, activityName, activityDescription) {
+export async function MakeActivity(token, name, description) {
   try {
     const options = {
       method: "POST",
@@ -247,9 +247,8 @@ export async function CreateActivity(token, activityName, activityDescription) {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        token,
-        name: activityName,
-        description: activityDescription,
+        name,
+        description,
       }),
     };
     const response = await fetch(`${BASE_URL}/activities`, options);

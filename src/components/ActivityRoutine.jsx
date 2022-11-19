@@ -21,6 +21,8 @@ const ActivityRoutine = (props) => {
     const activityIdValue = Number(activityId);
     const countValue = Number(count);
     const durationValue = Number(duration);
+   
+
 	// console.log(activities.activity, 'this is activities')
 	
 		// const updatedActivities = activities.filter((activity) => {
@@ -34,7 +36,9 @@ const ActivityRoutine = (props) => {
       activityIdValue,
       countValue,
       durationValue
+
     );
+
 // console.log(toAddActivity, 'this is toAddactivity')
     //need to add activities to routines update of state?
 	// console.log(name, 'this is name')
