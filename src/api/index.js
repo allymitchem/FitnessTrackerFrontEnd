@@ -194,21 +194,23 @@ export async function updateActivityRoutine(
   token,
   count,
   duration,
-  routineActivityId,
-  
+  routineActivityId
 ) {
   try {
     const options = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({count, duration}),
+      body: JSON.stringify({ count, duration }),
     };
-    const response = await fetch(`${BASE_URL}/routine_activities/${routineActivityId}`, options);
-    console.log(response, 'this is response')
-    console.log(routineActivityId, 'this is routineActID')
+    const response = await fetch(
+      `${BASE_URL}/routine_activities/${routineActivityId}`,
+      options
+    );
+    console.log(response, "this is response");
+    console.log(routineActivityId, "this is routineActID");
     const result = await response.json();
     return result;
   } catch (error) {
@@ -222,11 +224,37 @@ export async function deleteActivityRoutine(token, routineActivityId) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     };
-    const response = await fetch(`${BASE_URL}/routine_activities/${routineActivityId}`, options);
+    const response = await fetch(
+      `${BASE_URL}/routine_activities/${routineActivityId}`,
+      options
+    );
     const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function CreateActivity(token, activityName, activityDescription) {
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        token,
+        name: activityName,
+        description: activityDescription,
+      }),
+    };
+    const response = await fetch(`${BASE_URL}/activities`, options);
+    const result = await response.json();
+
     return result;
   } catch (error) {
     console.error(error);

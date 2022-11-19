@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
-import { getActivities, getActivityRoutines } from "../api";
+import { getActivities, getActivityRoutines} from "../api";
+import CreateActivity from "./CreateActivity";
 
 const Activities = ({activities, setActivities}) => {
     // const [activities, setActivities] = useState([]);
@@ -10,6 +11,7 @@ const Activities = ({activities, setActivities}) => {
           <div>
             <h3 className="activitiesTitle">All Activities</h3>
           </div>
+          <CreateActivity/>
           <div>
             {
             activities && activities.length ?  activities.map((activity) => {
