@@ -16,12 +16,6 @@ const ActivityRoutine = (props) => {
   const setRoutineActivities = props.setRoutineActivities;
 
   const setActivities = props.setActivities;
-  //   const [formDetails, setFormDetails] = useState({
-  //     activityId: "",
-  //     count: "",
-  //     duration: "",
-  //   });
-
   async function handleAdd(e) {
     e.preventDefault();
     const activityIdValue = Number(activityId);
@@ -52,7 +46,7 @@ const ActivityRoutine = (props) => {
 
   return (
     <div>
-      <h3> RoutineActivity </h3>
+      <h4>Add an activity to routine</h4>
       <form onSubmit={handleAdd}>
         <select
           onChange={(e) => {

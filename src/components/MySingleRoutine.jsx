@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { updateRoutine, deleteRoutine } from "../api";
 import ActivityRoutine from "./ActivityRoutine";
+import EditActivity from "./EditActivity";
 
 const MySingleRoutine = (props) => {
   const routine = props.routine;
@@ -73,27 +74,34 @@ const MySingleRoutine = (props) => {
       </div> */}
 
       <div>
-        {routineActivities.map((activity) => {
-       
+        {routineActivities.map((routineActivity) => {
+          console.log(routineActivity.name)
+          console.log(routineActivity.routineActivityId, 'this is routineActivity/routActId')
           return (
-            <div id="activities" key={`activity-id${activity.id}`}>
+            <div id="activities" key={`activity-id${routineActivity.id}`}>
               <div>
-                <b>Activity Name:</b> {activity.name}
+                <b>Activity Name:</b> {routineActivity.name}
                 
               </div>
               {/* <div>
                       <b>Description:</b> {activity.description}
                     </div> */}
               <div>
-                <b>Count:</b> {activity.count}
+                <b>Count:</b> {routineActivity.count}
               </div>
               <div>
-                <b>Duration:</b> {activity.duration}{" "}
+                <b>Duration:</b> {routineActivity.duration}{" "}
               </div>
+              {/* <button>Edit</button> */}
+              <EditActivity myRoutines={myRoutines} setMyRoutines={setMyRoutines} routineActivities={routineActivities} routineActivity={routineActivity}/>
+              
             </div>
           );
         })}
+        
+         {/* edit button here */}
       </div>
+      
       <ActivityRoutine
         myRoutines={myRoutines}
         setMyRoutines={setMyRoutines}
@@ -101,7 +109,6 @@ const MySingleRoutine = (props) => {
         activities={activities}
         routineActivities={routineActivities}
         setRoutineActivities={setRoutineActivities}
-        
       
       />
       <form onSubmit={handleSubmit}>
