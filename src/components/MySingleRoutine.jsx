@@ -60,6 +60,8 @@ const MySingleRoutine = (props) => {
     // console.log(setMyRoutines)
   }
 
+ 
+
   return (
     <div className="myRoutines">
       <div>
@@ -137,7 +139,7 @@ const MySingleRoutine = (props) => {
           <button type="submit">Submit</button>
           <br></br>
           <button id={routine.id} onClick={handleDelete}>
-            Delete Post
+            Delete Routine
           </button>
         </div>
       </form>

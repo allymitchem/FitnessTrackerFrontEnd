@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { updateActivityRoutine } from "../api";
+import { updateActivityRoutine, deleteActivityRoutine } from "../api";
 const EditActivity = (props) => {
 	const routineActivities = props.routineActivities
 	console.log(routineActivities, 'this is routineActs')
@@ -50,9 +50,31 @@ const EditActivity = (props) => {
 	// console.log(changedActivity, 'this is changed activity')
 	// console.log(updateActivityRoutine, 'this is updateActRout')
   }
+  async function handleRemove(e) {
+    e.preventDefault();
+	const token = localStorage.getItem("token")
+    const toDelete = e.target.id;
+	console.log(toDelete, "to delete")
+    const deleted = await deleteActivityRoutine(token, toDelete);
+console.log(deleted, "this is deleted")
+    if (deleted.success) {
+      const updatedActivityRoutines = routineActivities.filter((activity) => {
+        if (activity.id == deleted.id) {
+          return false;
+        }
+        return true;
+      });
+
+      // const bob = deletedThing.id == deletedRoutine.id
+      // return (bob ? deleted : deletedThing)
+      setRoutineActivities(updatedActivityRoutines);
+    }
+  }
+
   return(
 	<form onSubmit={handleSubmit}>
 		<div>
+			<p><b>Edit activity below</b></p>
 			<label>Count: </label>
 			<input type="text" value={formDetails.count} onChange={(e)=>{
 				setFormDetails({...formDetails, count: e.target.value})
@@ -63,6 +85,7 @@ const EditActivity = (props) => {
 			}}/>
 			<button type="submit">Submit</button>
 		</div>
+		<button id={routineActivity.routineActivityId} onClick={handleRemove}>Delete Activity</button>
 
 	</form>
   );

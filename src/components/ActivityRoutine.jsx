@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AddRoutineActivity } from "../api";
+import { AddRoutineActivity , deleteActivityRoutine} from "../api";
 
 const ActivityRoutine = (props) => {
   const [activityId, setActivityId] = useState("");
@@ -43,6 +43,7 @@ const ActivityRoutine = (props) => {
       setRoutineActivities([...routineActivities, toAddActivity]);
     } }
   
+    
 
   return (
     <div>
@@ -92,6 +93,8 @@ const ActivityRoutine = (props) => {
         </label>
         <button type="submit">Submit</button>
       </form>
+
+      
     </div>
   );
 };
