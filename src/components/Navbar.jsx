@@ -1,7 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const Navbar = ({ loggedIn, setLoggedIn }) => {
+  const navigate = useNavigate
   return (
     <div id="navbar">
       <h2>Fitness Tracker</h2>
@@ -13,6 +14,7 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
               localStorage.removeItem("token");
               localStorage.removeItem("user");
               setLoggedIn(false);
+              navigate("/")
             }}
           >
             Logout
