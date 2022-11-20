@@ -3,10 +3,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { registerUser } from "../api";
 
 const Register = () => {
-  const [formData, setFormData]= useState({
-    username:"",
-    password:""
-  })
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
   const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
@@ -27,20 +27,34 @@ const Register = () => {
   }
   return (
     <div className="registerForm">
-      <div >
+      <div>
         <h2>Please create a username and password</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <span id="inputs">
-        <input type="text" placeholder="username" className="username" 
-         onChange={(e)=> setFormData({...formData, username:e.target.value})}
-		 value={formData.username}/> 
-        <input type="password" placeholder="password" className="username" 
-        onChange={(e)=> setFormData({...formData, password:e.target.value})}
-        value={formData.password}/>
-        <button type="submit">Submit</button>
+          <input
+            type="text"
+            placeholder="username"
+            className="username"
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
+            value={formData.username}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            className="username"
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
+            value={formData.password}
+          />
+          <button type="submit">Submit</button>
 
-        <NavLink className="signUpSignIn" to="/login">Already have an account? Sign in here.</NavLink>
+          <NavLink className="signUpSignIn" to="/login">
+            Already have an account? Sign in here.
+          </NavLink>
         </span>
       </form>
     </div>

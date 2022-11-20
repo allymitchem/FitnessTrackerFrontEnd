@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 import { updateRoutine, deleteRoutine } from "../api";
 import ActivityRoutine from "./ActivityRoutine";
 import EditActivity from "./EditActivity";
@@ -12,8 +11,7 @@ const MySingleRoutine = (props) => {
   const myRoutines = props.myRoutines;
   const setMyRoutines = props.setMyRoutines;
   const activities = props.activities;
-  const setActivities = props.setActivities;
-  const user = localStorage.getItem("user");
+
   const token = localStorage.getItem("token");
   const [formDetails, setFormDetails] = useState({
     name: routine.name,
@@ -43,8 +41,6 @@ const MySingleRoutine = (props) => {
         return true;
       });
 
-      // const bob = deletedThing.id == deletedRoutine.id
-      // return (bob ? deleted : deletedThing)
       setMyRoutines(updatedRoutines);
     }
   }
@@ -55,12 +51,9 @@ const MySingleRoutine = (props) => {
       const condition = routineThing.id == editedRoutine.id;
       return condition ? editedRoutine : routineThing;
     });
-    console.log(updatedRoutines);
-    setMyRoutines(updatedRoutines);
-    // console.log(setMyRoutines)
-  }
 
- 
+    setMyRoutines(updatedRoutines);
+  }
 
   return (
     <div className="myRoutines">
@@ -71,76 +64,75 @@ const MySingleRoutine = (props) => {
         <b>Goal:</b> {routine.goal}{" "}
       </div>
 
-      {/* <div>
-        <b>Public?</b> {routine.isPublic}
-      </div> */}
+      <div>
+        {routineActivities
+          ? routineActivities.map((routineActivity) => {
+              return (
+                <div id="activities" key={`activity-id${routineActivity.id}`}>
+                  <div className="myActivitiesList">
+                    <b>Activity Name:</b> {routineActivity.name}
+                  </div>
 
-      <div >
-        {routineActivities.map((routineActivity) => {
-          // console.log(routineActivity.name)
-          // console.log(routineActivity.routineActivityId, 'this is routineActivity/routActId')
-          return (
-            <div id="activities" key={`activity-id${routineActivity.id}`}>
-              <div className="myActivitiesList">
-                <b>Activity Name:</b> {routineActivity.name}
-                
-              </div>
-              {/* <div>
-                      <b>Description:</b> {activity.description}
-                    </div> */}
-              <div>
-                <b>Count:</b> {routineActivity.count}
-              </div>
-              <div>
-                <b>Duration:</b> {routineActivity.duration}{" "}
-              </div>
-              {/* <button>Edit</button> */}
-              <EditActivity myRoutines={myRoutines} setMyRoutines={setMyRoutines} routineActivities={routineActivities} routineActivity={routineActivity} setRoutineActivities={setRoutineActivities}/>
-              
-            </div>
-          );
-        })}
-        
-        
+                  <div>
+                    <b>Count:</b> {routineActivity.count}
+                  </div>
+                  <div>
+                    <b>Duration:</b> {routineActivity.duration}{" "}
+                  </div>
+
+                  <EditActivity
+                    myRoutines={myRoutines}
+                    setMyRoutines={setMyRoutines}
+                    routineActivities={routineActivities}
+                    routineActivity={routineActivity}
+                    setRoutineActivities={setRoutineActivities}
+                  />
+                </div>
+              );
+            })
+          : null}
       </div>
-      
+
       <ActivityRoutine
+        id="addActivityToR"
         myRoutines={myRoutines}
         setMyRoutines={setMyRoutines}
         routine={routine}
         activities={activities}
         routineActivities={routineActivities}
         setRoutineActivities={setRoutineActivities}
-      
       />
-      <form onSubmit={handleSubmit}>
+      <form id="editRoutine" onSubmit={handleSubmit}>
         <p>Edit Routine Below</p>
         <div>
-          <label>Name</label>
-          <input
-            name="name"
-            type="text"
-            value={formDetails.name}
-            onChange={handleChange}
-          />
-          <label>Goal</label>
-          <input
-            name="goal"
-            type="text"
-            value={formDetails.goal}
-            onChange={handleChange}
-          />
-          {/* <label>Public</label> */}
-          {/* <select>
-							<option defaultValue={formDetails.isPublic}></option>
-							<option value={false}>No</option>
-							<option value={true}>Yes</option>
-						</select>  */}
-          <button type="submit">Submit</button>
-          <br></br>
-          <button id={routine.id} onClick={handleDelete}>
-            Delete Routine
-          </button>
+          <p>
+            <label>Name: </label>
+            <input
+              name="name"
+              type="text"
+              value={formDetails.name}
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            <label>Goal: </label>
+            <input
+              name="goal"
+              type="text"
+              value={formDetails.goal}
+              onChange={handleChange}
+            />
+          </p>
+
+          <p>
+            <button type="submit">Submit</button>
+          </p>
+
+          <p>
+            <button id={routine.id} onClick={handleDelete}>
+              Delete Routine
+            </button>
+          </p>
         </div>
       </form>
     </div>

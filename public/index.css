@@ -1,9 +1,8 @@
 body {
-  font-family:  Arial, sans-serif;
+  font-family: Arial, sans-serif;
   height: 100vh;
   width: 100vw;
   margin-left: 10px;
-  
 }
 
 #app {
@@ -20,7 +19,7 @@ body {
 }
 
 #navbar {
-  font-family: 'Poller One', Arial, sans-serif;
+  font-family: "Poller One", Arial, sans-serif;
   flex-grow: 1;
   max-height: 10%;
   min-height: 40px;
@@ -29,9 +28,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 10px;
 }
-
-
 
 #container {
   align-items: center;
@@ -71,25 +69,18 @@ tr:hover {
   background-color: #f2f2f2;
 }
 
-img {
-  border-radius: 5px;
-}
-
 .routineActs {
-  padding:5px;
+  padding: 5px;
   margin: 10px;
   border: 1px solid black;
+  background-color: #bef5c3;
 }
 
-#routines{
-  margin-bottom: 5px;
-}
-
-#activities{
-  font-size:12px;
+#activities {
+  font-size: 12px;
   margin-bottom: 2px;
   border: 1px solid black;
-  padding: 10px
+  padding: 5px;
 }
 
 .links {
@@ -97,104 +88,114 @@ img {
   justify-content: space-between;
   padding-right: 10px;
 }
-#home, #navbarActivities, #routinesNav, #logout, #myRoutines, #login {
+#home,
+#navbarActivities,
+#routinesNav,
+#logout,
+#myRoutines,
+#login {
   padding-right: 10px;
   text-decoration: none;
   color: white;
 }
 
-
-.activitiesTab{
-  border:1px solid black;
-  margin:5px;
-  padding:10px;
+.activitiesTitle {
+  margin: 10px;
 }
 
-.activitiesTitle{
-  margin:10px;
-}
-
-.loginForm{
-  border:1px solid black;
-  border-radius:5px;
-  display:flex;
+.loginForm {
+  border: 1px solid black;
+  display: flex;
   justify-content: center;
-  flex-direction:column;
-  align-items:center;
- padding:2%;
- margin-top:100px;
- margin-right:100px;
- margin-left:100px;
-
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  margin-top: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
-#inputs{
-  display:flex;
-  flex-direction:column;
-  padding-bottom:10px;
-  width:200px;
+#inputs {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  width: 200px;
 }
 
-.registerForm{
-  border:1px solid black;
-  border-radius:5px;
-  display:flex;
+.registerForm {
+  border: 1px solid black;
+  display: flex;
   justify-content: center;
-  flex-direction:column;
-  align-items:center;
- padding:2%;
- margin-top:100px;
- margin-right:100px;
- margin-left:100px;
-  
-
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  margin-top: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
-.myRoutines{
-  border:1px solid black;
-
-  border-radius:5px;
-  padding:5px;
+.myRoutines {
+  border: 1px solid black;
+  padding: 10px;
   margin-right: 10px;
-  margin-left:10px;
-  margin-bottom:10px;
-  background-color:#bef5c3 ;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: #bef5c3;
 }
-#activities{
-  background-image: linear-gradient(to right, #329D9C, #56C596) ;
-  border-radius:10px;
-  margin-bottom:4px;
-}
-
-#createRoutine{
-  border:1px solid black;
-  border-radius:5px;
-  margin:10px;
-  padding:5px;
-  background-image: linear-gradient(to right, #56C596,#329D9C);
-
+#activities {
+  background-image: linear-gradient(to right, #329d9c, #56c596);
+  margin-bottom: 10px;
 }
 
-#createActivity{
-  border:1px solid black;
-  border-radius:5px;
-  margin:10px;
-  padding:5px;
-  background-image: linear-gradient(to right, #56C596,#329D9C);
-
+#activities2 {
+  background-image: linear-gradient(to right, #329d9c, #56c596);
+  margin-bottom: 10px;
+  border: 1px solid black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
-#nameGoal{
-  display:flex;
+#createRoutine,
+#createActivity {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 5px;
+  background-image: linear-gradient(to right, #56c596, #329d9c);
+}
+
+#nameGoal {
+  display: flex;
   flex-direction: column;
-  width:200px;
+  width: 200px;
   margin-bottom: 3px;
-  
 }
 
-#nameDescription{
-  display:flex;
+#nameDescription {
+  display: flex;
   flex-direction: column;
-  width:200px;
-  margin-bottom:3px;
+  width: 200px;
+  margin-bottom: 3px;
+}
+
+#addActivityToR {
+  border: 1px solid #222222;
+}
+
+h4,
+h2 {
+  margin-left: 10px;
+}
+
+b {
+  font-size: 15px;
+}
+
+#editRoutine {
+  margin-top: 5px;
+  border: 1px solid black;
+}
+#routines {
+  padding-left: 5px;
+  background-color: #bef5c3;
 }

@@ -209,8 +209,6 @@ export async function updateActivityRoutine(
       `${BASE_URL}/routine_activities/${routineActivityId}`,
       options
     );
-    console.log(response, "this is response");
-    console.log(routineActivityId, "this is routineActID");
     const result = await response.json();
     return result;
   } catch (error) {

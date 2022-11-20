@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getRoutines } from "../api";
 
-
 const Routines = () => {
   const [routines, setRoutines] = useState([]);
   useEffect(() => {
@@ -17,7 +16,6 @@ const Routines = () => {
       <div></div>
       <div>
         {routines.map((routine) => {
-			
           return (
             <div className="routineActs" key={`routines-id${routine.id}`}>
               <div id="routines">
@@ -33,7 +31,7 @@ const Routines = () => {
               </div>
               {routine.activities.map((activity) => {
                 return (
-                  <div id="activities" key={`activity-id${activity.id}`}>
+                  <div id="activities2" key={`activity-id${activity.id}`}>
                     <div>
                       <b>Activity Name:</b> {activity.name}
                     </div>
