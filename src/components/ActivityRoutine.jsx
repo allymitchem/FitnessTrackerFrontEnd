@@ -31,7 +31,7 @@ const ActivityRoutine = (props) => {
 
   return (
     <div id="addActivityToR">
-      <h3>Add an activity to routine</h3>
+      <p><b>Add an activity to your routine</b></p>
       <form id="addActivityToRoutine" onSubmit={handleAdd}>
         <select
           onChange={(e) => {
@@ -52,9 +52,23 @@ const ActivityRoutine = (props) => {
               })
             : null}
         </select>
-        <p>
+        <span id="countDuration">
+        {/* <p> */}
+          
+        <label htmlFor="count">
+            Count: {" "} </label>
+            <input
+              value={count}
+              onChange={(e) => {
+                setCount(e.target.value);
+              }}
+              required
+            ></input>{" "}
+          
+          {/* </p>
+          <p> */}
           <label htmlFor="duration">
-            Duration:{" "}
+            Duration: {" "}
             <input
               value={duration}
               onChange={(e) => {
@@ -63,19 +77,9 @@ const ActivityRoutine = (props) => {
               required
             ></input>
           </label>
-        </p>
-        <p>
-          <label htmlFor="count">
-            Count:{" "}
-            <input
-              value={count}
-              onChange={(e) => {
-                setCount(e.target.value);
-              }}
-              required
-            ></input>{" "}
-          </label>
-        </p>
+        {/* </p> */}
+          </span>
+        
         <button type="submit">Submit</button>
       </form>
     </div>

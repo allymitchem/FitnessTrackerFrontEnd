@@ -6,8 +6,7 @@ const EditActivity = (props) => {
   const routineActivity = props.routineActivity;
   const setRoutineActivities = props.setRoutineActivities;
 
-  const [count, setCount] = useState("");
-  const [duration, setDuration] = useState("");
+
   const [formDetails, setFormDetails] = useState({
     count: "",
     duration: "",
@@ -58,7 +57,8 @@ const EditActivity = (props) => {
         <p>
           <b>Edit activity below</b>
         </p>
-        <p>
+        <span id="countDuration">
+			
           <label>Count: </label>
           <input
             type="text"
@@ -67,8 +67,8 @@ const EditActivity = (props) => {
               setFormDetails({ ...formDetails, count: e.target.value });
             }}
           />
-        </p>
-        <p>
+        
+        
           <label>Duration: </label>
           <input
             name="duration"
@@ -77,10 +77,11 @@ const EditActivity = (props) => {
               setFormDetails({ ...formDetails, duration: e.target.value });
             }}
           />
-        </p>
-        <p>
-          <button type="submit">Submit</button>
-        </p>
+		  </span>
+        
+        
+          <button id="editSubmit" type="submit">Submit</button>
+        
       </div>
       <button id={routineActivity.routineActivityId} onClick={handleRemove}>
         Delete Activity

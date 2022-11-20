@@ -10,7 +10,7 @@ const Login = (props) => {
 
   const navigate = useNavigate();
 
-  const getLoggedInUser = props.getLoggedInUser;
+ 
   const setLoggedIn = props.setLoggedIn;
   const setUsername = props.setUsername;
 

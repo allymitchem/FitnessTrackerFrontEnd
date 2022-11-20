@@ -103,7 +103,7 @@ const MySingleRoutine = (props) => {
         setRoutineActivities={setRoutineActivities}
       />
       <form id="editRoutine" onSubmit={handleSubmit}>
-        <p>Edit Routine Below</p>
+        <p><b>Edit Routine Below</b></p>
         <div>
           <p>
             <label>Name: </label>
